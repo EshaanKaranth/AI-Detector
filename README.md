@@ -47,7 +47,26 @@ AI Detector
 <code><pre>
 ## **The Datasets used:**
 
+Human Resumes :
 https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset
+https://www.kaggle.com/datasets/gauravduttakiit/resume-dataset
+https://www.kaggle.com/datasets/jillanisofttech/updated-resume-dataset
+https://www.kaggle.com/datasets/serkanp/resume-screening-dataset
+https://www.kaggle.com/datasets/leenardeshmukh/curriculum-vitae
+https://www.kaggle.com/datasets/wahib04/multilabel-resume-dataset
+https://www.kaggle.com/datasets/chingkuangkam/resume-text-classification-dataset
+
+AI Resumes:
+https://www.kaggle.com/datasets/ramzybakir/ai-generated-resume-dataset
+https://www.kaggle.com/datasets/jithinjagadeesh/resume-dataset
+https://www.kaggle.com/datasets/mdtalhask/ai-powered-resume-screening-dataset-2025
+https://www.kaggle.com/datasets/sohrabbahari/ai-resume-screening-dataset
+https://huggingface.co/datasets/InferencePrince555/Resume-Dataset
+
+
+[few datasets may require special functions to process into .csv format]
+
+</code></pre>
 
 
 
