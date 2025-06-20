@@ -44,4 +44,11 @@ AI Detector
 └── requirements.txt </code></pre>
 
 
+<code><pre>
+** ##The Datasets used:**
+
+https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset
+
+
+
 
