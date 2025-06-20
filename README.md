@@ -1,8 +1,8 @@
-*This Repository contains the code for 2 modules: 
-      -1. Resume Plagiarism Detector
-      -2. Resume AI text Detector
+* This Repository contains the code for 2 modules: 
+      - 1. Resume Plagiarism Detector
+      - 2. Resume AI text Detector
 
-*"plagiarism_detector.py" uses functions from "common_utils.py" and "plagiarism_heuristics.py"
+* "plagiarism_detector.py" uses functions from "common_utils.py" and "plagiarism_heuristics.py"
 
 > "resumes_loader.py" uses functions from "common_utils.py"
 
