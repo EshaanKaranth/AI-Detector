@@ -1,4 +1,4 @@
-*  H2 This Repository contains the code for 2 modules: 
+*  # H2 This Repository contains the code for 2 modules: 
        1. Resume Plagiarism Detector
        2. Resume AI text Detector
 
