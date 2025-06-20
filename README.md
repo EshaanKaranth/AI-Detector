@@ -12,7 +12,8 @@ All the requirements can be downloaded from the "requirements.txt" file
 
 Libre Office needs to be installed in the system for running headless soffice doc/docx to pdf conversion
 
-<pre><codeThe recommended directory structure:
+<pre><code>
+  The recommended directory structure:
 
 AI Detector
 ├── ai_detector.py
