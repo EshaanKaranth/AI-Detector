@@ -1,6 +1,6 @@
-* # H2 This Repository contains the code for 2 modules: 
-      - 1. Resume Plagiarism Detector
-      - 2. Resume AI text Detector
+*  H2 This Repository contains the code for 2 modules: 
+       1. Resume Plagiarism Detector
+       2. Resume AI text Detector
 
 * "plagiarism_detector.py" uses functions from "common_utils.py" and "plagiarism_heuristics.py"
 
