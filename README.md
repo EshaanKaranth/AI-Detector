@@ -27,9 +27,9 @@ AI Detector
     |---resumes
     |---test
     |---results
-    |	     |
-    |    	 |---ai_results.json
-    |	     |---plagiarism_results.json
+    |	    |
+    |    	|---ai_results.json
+    |	    |---plagiarism_results.json
     |
     |---processing
     |	      |
