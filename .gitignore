@@ -1,0 +1,39 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# VS Code workspace data
+.vscode/
+
+# Python virtual environment
+aienv/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Intermediate processing files
+processing/
+results/
+
+# Resume/input/output folders (generated/tested ones)
+files/
+resumes/
+samples/
+test/
+
+# Kaggle CSVs (optional, if only used for testing/training)
+kaggle_data/*.csv
+
+# System/OS generated files
+.DS_Store
+Thumbs.db
+
+# Jupyter/Notebook auto-saves (if any)
+.ipynb_checkpoints/
+
+#the trained model
+ai_resume_detector_optimized/
