@@ -8,7 +8,7 @@
 
 * "resumes_loader.py" uses functions from "common_utils.py"
 
-* "ai_detector.py" can be used in 2 modes (infer, train). The model used is a HuggingFace model microsoft/deberta-v3-small which was trained on 5000+ resumes of Human and AI from kaggle datasets.This module also uses functions from "common_utils.py".
+* **bold** ai_detector.py can be used in 2 modes (infer, train). The model used is a HuggingFace model microsoft/deberta-v3-small which was trained on 5000+ resumes of Human and AI from kaggle datasets.This module also uses functions from "common_utils.py".
 
 * All the requirements can be downloaded from the "requirements.txt" file
 
