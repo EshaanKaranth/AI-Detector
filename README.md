@@ -20,29 +20,28 @@
 The recommended directory structure:
 
 AI Detector
-├── ai_detector.py
+├── ai_detector.py    
 ├── plagiarism_detector.py
-├── plagiarism_heuristics.py
+├── plagiarism_heuristics.py            # contains all the NLP functions which can be modified according to the situation
 ├── resumes_loader.py
-├── common_utils.py
-├── .env
-├── kaggle_data/
-├── resumes/
-├── test/
-├── results/
-│ ├── ai_results.json
+├── common_utils.py                     # Shared utility functions
+├── .env                                # requires Qdrant url, api key 
+├── kaggle_data/                        # .csv files
+├── resumes/                            # Locally stored Resume files for reference (used for contact info extraction when plagiarism is flagged, i.e between input file and source file)
+├── test/                               # input files
+├── results/                            # Output results
+│ ├── ai_results.json                   
 │ └── plagiarism_results.json
-├── processing/
+├── processing/                         # all these files will be created automatically when the program runs.
 │ ├── count.json
 │ ├── failed_files.json
 │ └── processed_files.json
-├── logs/
-├── aienv/
-├── ai_resume_detector_optimized/
-├── .gitignore
+├── logs/                               # contains log files created during run time, handled by RotatingFileHandler
+├── aienv/                              # project virtual environment
+├── ai_resume_detector_optimized/       # Fine tuned Model
+├── .gitignore                           
 ├── README.md
 └── requirements.txt </code></pre>
-
 
 
 
