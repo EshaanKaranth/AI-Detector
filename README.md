@@ -4,6 +4,7 @@
        1.Resume Plagiarism Detector
        2.Resume AI text Detector
 
+* Python [3.12.4]
 * **plagiarism_detector.py** uses functions from **common_utils.py** and **plagiarism_heuristics.py**
 
 * **resumes_loader.py** uses functions from **common_utils.py**
@@ -15,6 +16,8 @@
 * **Libre Office** needs to be installed in the system for running headless *soffice* doc/docx to pdf conversion
 
 * **Elron/bleurt-base-512** model needs to be downloaded from HugginFace Models for generating Bleurt scores.
+
+* To use GPU for loading Models use : [pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121]
 
 <pre><code>
 The recommended directory structure:
@@ -42,8 +45,6 @@ AI Detector
 ├── .gitignore                           
 ├── README.md
 └── requirements.txt </code></pre>
-
-
 <code><pre>
 ## **The Datasets used:**
 
@@ -66,6 +67,7 @@ https://huggingface.co/datasets/InferencePrince555/Resume-Dataset
 
 [few datasets may require special functions to process into .csv format]
 
+**clean_ai_detector.py** can be used to import and clean the AI resume dataset from *huggingface - InferencePrince555/Resume-Dataset* and insert it into a single csv file.
 </code></pre>
 
 
