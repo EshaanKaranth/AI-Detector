@@ -207,7 +207,6 @@ class OptimizedKaggleAIResumeDetector:
             else:
                 pdf_path = file_path
 
-            # Try fast method first
             text = ""
             if is_text_pdf(pdf_path):
                 text = unstructured_to_markdown(str(pdf_path))
@@ -334,7 +333,6 @@ def main():
     output_dir = "./ai_resume_detector_optimized"
     os.makedirs(output_dir, exist_ok=True)
 
-    # CUDA info
     if torch.cuda.is_available():
         torch.backends.cudnn.benchmark = True
         torch.backends.cudnn.deterministic = False
@@ -344,7 +342,6 @@ def main():
 
     torch.set_num_threads(6)
 
-    # Ask user what to do
     mode = input("Enter mode ('train' or 'infer'): ").strip().lower()
 
     detector = OptimizedKaggleAIResumeDetector(model_name=model_name)
@@ -419,7 +416,7 @@ def main():
 
         with out_file.open("w", encoding="utf-8") as f:
             json.dump(results, f, indent=4)
-        logger.info(f"\n✅ All predictions saved to: {out_file}")
+        logger.info(f"\nAll predictions saved to: {out_file}")
 
     else:
         logger.error("Invalid mode. Please enter 'train' or 'infer'.")

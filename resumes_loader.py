@@ -10,7 +10,6 @@ from pathlib import Path
 logger = get_logger("logs/resumes_loader.log")
 
 def delete_with_retry(file_path: Path, max_retries: int = 3, delay: float = 1.0) -> bool:
-    """Delete a file with retries for PermissionError."""
     for attempt in range(max_retries):
         try:
             file_path.unlink()
@@ -26,7 +25,6 @@ def delete_with_retry(file_path: Path, max_retries: int = 3, delay: float = 1.0)
     return False
 
 def process_resume(file_path: str, qdrant_client, model, splitter, processed_files: set, failed_files: set, id_counter: int, collection_name: str) -> int:
-    """Process a resume file and upload its embeddings to Qdrant."""
     file_path = Path(file_path)
     filename = file_path.name
     file_ext = file_path.suffix.lower()
@@ -35,11 +33,11 @@ def process_resume(file_path: str, qdrant_client, model, splitter, processed_fil
 
     if filename in processed_files:
         logger.info(f"Skipping already processed file: {filename}")
-        print(f"Already processed file: {filename}")  # Added console output
+        print(f"Already processed file: {filename}")
         return id_counter
 
     logger.info(f"Processing {filename}...")
-    print(f"Processing {filename}...")  # Optional: Add console output for processing to match logging
+    print(f"Processing {filename}...") 
 
     processing_path = file_path
     if file_ext in SUPPORTED_EXTENSIONS and file_ext != ".pdf":
@@ -122,7 +120,6 @@ def process_resume(file_path: str, qdrant_client, model, splitter, processed_fil
     return id_counter
 
 def main():
-    """Main function to process resumes and upload to Qdrant."""
     try:
         validate_environment()
         qdrant_url = os.getenv("QDRANT_URL")

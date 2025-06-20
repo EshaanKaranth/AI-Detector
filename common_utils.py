@@ -35,7 +35,6 @@ COLLECTION_NAME = "resume_database"
 SUPPORTED_EXTENSIONS = {'.doc', '.docx', '.pdf', '.txt'}
 
 def get_logger(log_file: str) -> logging.Logger:
-    """Initialize or retrieve singleton logger."""
     global logger
     if logger is None:
         logger = logging.getLogger('resume_analyzer')
@@ -47,7 +46,6 @@ def get_logger(log_file: str) -> logging.Logger:
     return logger
 
 def validate_folder(path: str, folder_type: str = "input") -> Path:
-    """Validate folder path for input or output."""
     path = Path(path.strip())
     try:
         if folder_type == "input":
@@ -65,7 +63,6 @@ def validate_folder(path: str, folder_type: str = "input") -> Path:
         raise ValueError(f"Folder validation failed for {path}: {e}")
 
 def validate_environment():
-    """Validate required environment variables."""
     load_dotenv()
     required_vars = ["QDRANT_URL", "QDRANT_API_KEY"]
     missing = [var for var in required_vars if not os.getenv(var)]
@@ -75,31 +72,25 @@ def validate_environment():
         raise ValueError(f"Missing environment variables: {missing}")
 
 def init(qdrant_url: str, qdrant_api_key: str, collection_name: str):
-    """Initialize Qdrant client, model, splitter, and caches."""
     global qdrant, model, splitter, tfidf_vectorizer, logger
     
     try:
-        # Initialize logger first if not already done
         if logger is None:
             get_logger("resume_analyzer.log")
             
         logger.info(f"Initializing Qdrant with URL: {qdrant_url}, Collection: {collection_name}")
         
-        # Initialize Qdrant client
         if qdrant is None:
             qdrant = QdrantClient(url=qdrant_url, api_key=qdrant_api_key)
-            # Test connection by fetching collections
             collections = qdrant.get_collections()
             logger.info(f"Connected to Qdrant. Available collections: {[c.name for c in collections.collections]}")
         
-        # Initialize SentenceTransformer model
         if model is None:
-            device = os.getenv("TRANSFORMER_DEVICE", "cpu")
+            device = os.getenv("TRANSFORMER_DEVICE", "cpu")  #you can also change it to gpu if needed
             logger.info(f"Loading SentenceTransformer model on device: {device}")
             model = SentenceTransformer('intfloat/multilingual-e5-large-instruct', device=device)
             logger.info("SentenceTransformer model loaded successfully")
         
-        # Initialize text splitter with error handling
         if splitter is None:
             try:
                 splitter = MarkdownTextSplitter(chunk_size=300, chunk_overlap=75)
@@ -116,7 +107,6 @@ def init(qdrant_url: str, qdrant_api_key: str, collection_name: str):
                     splitter = RecursiveCharacterTextSplitter(chunk_size=300, chunk_overlap=75)
                     logger.info("RecursiveCharacterTextSplitter initialized successfully (legacy import)")
         
-        # Ensure collection exists
         ensure_collection_exists(collection_name)
         logger.info("Initialization completed successfully")
         
@@ -130,11 +120,9 @@ def init(qdrant_url: str, qdrant_api_key: str, collection_name: str):
         raise ValueError(f"Failed to initialize components: {e}")
 
 def is_initialized() -> bool:
-    """Check if all required components are initialized."""
     return all([qdrant is not None, model is not None, splitter is not None, tfidf_vectorizer is not None])
 
 def ensure_collection_exists(collection_name: str):
-    """Ensure Qdrant collection exists."""
     if qdrant is None:
         raise ValueError("Qdrant client not initialized")
     
@@ -153,7 +141,6 @@ def ensure_collection_exists(collection_name: str):
         raise
 
 def load_json_set(path: Path) -> Set[str]:
-    """Load a set from a JSON file."""
     path = Path(path)
     try:
         if path.exists():
@@ -166,7 +153,6 @@ def load_json_set(path: Path) -> Set[str]:
         return set()
 
 def save_json_set(data: Set[str], path: Path):
-    """Save a set to a JSON file."""
     path = Path(path)
     try:
         with path.open("w", encoding='utf-8') as f:
@@ -178,7 +164,6 @@ def save_json_set(data: Set[str], path: Path):
             logger.error(f"Failed to save {path}: {e}")
 
 def safe_upsert_with_retry(client: QdrantClient, collection_name: str, points: list, max_retries: int = 3) -> bool:
-    """Upsert points to Qdrant with retries."""
     for attempt in range(max_retries):
         try:
             client.upsert(collection_name=collection_name, points=points)
@@ -194,7 +179,6 @@ def safe_upsert_with_retry(client: QdrantClient, collection_name: str, points: l
     return False
 
 def convert_doc_to_pdf(file_path: Path) -> Optional[Path]:
-    """Convert .doc/.docx to PDF using LibreOffice."""
     file_path = Path(file_path)
     output_dir = file_path.parent
     pdf_path = output_dir / f"{file_path.stem}.pdf"
@@ -226,7 +210,6 @@ def convert_doc_to_pdf(file_path: Path) -> Optional[Path]:
         return None
 
 def is_text_pdf(file_path: Path) -> bool:
-    """Check if a PDF contains extractable text."""
     file_path = Path(file_path)
     try:
         elements = partition(filename=str(file_path))
@@ -237,7 +220,6 @@ def is_text_pdf(file_path: Path) -> bool:
         return False
 
 def ocr_pdf(file_path: Path) -> str:
-    """Perform OCR on a PDF file."""
     file_path = Path(file_path)
     try:
         images = convert_from_path(str(file_path))
@@ -254,7 +236,6 @@ def ocr_pdf(file_path: Path) -> str:
         return ""
 
 def unstructured_to_markdown(file_path: Path) -> str:
-    """Extract text from a file using unstructured and convert to markdown."""
     file_path = Path(file_path)
     try:
         elements = partition(filename=str(file_path))
@@ -269,7 +250,6 @@ def unstructured_to_markdown(file_path: Path) -> str:
         return ""
 
 def safe_create_documents(text: str, metadata: dict = None) -> list:
-    """Safely create documents using the text splitter with proper error handling."""
     if not is_initialized():
         raise ValueError("Components not properly initialized. Call init() first.")
     
