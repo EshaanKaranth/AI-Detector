@@ -17,6 +17,8 @@
 
 * **Elron/bleurt-base-512** model needs to be downloaded from HugginFace Models for generating Bleurt scores.
 
+* To use GPU for loading Models use : **pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121**
+
 <pre><code>
 The recommended directory structure:
 
