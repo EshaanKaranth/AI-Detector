@@ -1,19 +1,21 @@
-This Repository contains the code for 2 modules: 
-1. Resume Plagiarism Detector
-2. Resume AI text Detector
+>This Repository contains the code for 2 modules: 
+      1. Resume Plagiarism Detector
+      2. Resume AI text Detector
 
-"plagiarism_detector.py" uses functions from "common_utils.py" and "plagiarism_heuristics.py"
+> "plagiarism_detector.py" uses functions from "common_utils.py" and "plagiarism_heuristics.py"
 
-"resumes_loader.py" uses functions from "common_utils.py"
+> "resumes_loader.py" uses functions from "common_utils.py"
 
-"ai_detector.py" can be used in 2 modes (infer, train). The model used is a HuggingFace model microsoft/deberta-v3-small which was trained on 5000+ resumes of Human and AI from kaggle datasets.This module also uses functions from "common_utils.py".
+> "ai_detector.py" can be used in 2 modes (infer, train). The model used is a HuggingFace model microsoft/deberta-v3-small which was trained on 5000+ resumes of Human and AI from kaggle datasets.This module also uses functions from "common_utils.py".
 
-All the requirements can be downloaded from the "requirements.txt" file
+> All the requirements can be downloaded from the "requirements.txt" file
 
-Libre Office needs to be installed in the system for running headless soffice doc/docx to pdf conversion
+> Libre Office needs to be installed in the system for running headless soffice doc/docx to pdf conversion
+
+> "Elron/bleurt-base-512" model needs to be downloaded from HugginFace Models for generating Bleurt scores.
 
 <pre><code>
-  The recommended directory structure:
+The recommended directory structure:
 
 AI Detector
 ├── ai_detector.py
@@ -38,4 +40,7 @@ AI Detector
 ├── .gitignore
 ├── README.md
 └── requirements.txt </code></pre>
+
+
+
 
