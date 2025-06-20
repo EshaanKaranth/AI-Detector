@@ -4,6 +4,7 @@
        1.Resume Plagiarism Detector
        2.Resume AI text Detector
 
+* Python [3.12.4]
 * **plagiarism_detector.py** uses functions from **common_utils.py** and **plagiarism_heuristics.py**
 
 * **resumes_loader.py** uses functions from **common_utils.py**
