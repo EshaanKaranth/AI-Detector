@@ -43,8 +43,6 @@ AI Detector
 ├── .gitignore                           
 ├── README.md
 └── requirements.txt </code></pre>
-
-
 <code><pre>
 ## **The Datasets used:**
 
