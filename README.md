@@ -1,4 +1,4 @@
->This Repository contains the code for 2 modules: 
+->This Repository contains the code for 2 modules: 
       1. Resume Plagiarism Detector
       2. Resume AI text Detector
 
