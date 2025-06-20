@@ -66,6 +66,7 @@ https://huggingface.co/datasets/InferencePrince555/Resume-Dataset
 
 [few datasets may require special functions to process into .csv format]
 
+**clean_ai_detector.py** can be used to import and clean the AI resume dataset from *huggingface - InferencePrince555/Resume-Dataset* and insert it into a single csv file.
 </code></pre>
 
 
