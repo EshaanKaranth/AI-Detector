@@ -1,7 +1,6 @@
 import os
 import json
 import torch
-import argparse
 import numpy as np
 import re
 import logging
